@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Registration</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: linear-gradient(to right, #667eea, #764ba2);
+}
+.container {
+    width: 600px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+.form-group {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.form-group label {
+    width: 200px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    flex: 1;
+    padding: 8px;
+}
+.gender {
+    display: flex;
+    gap: 15px;
+}
+
+.skills label {
+    display: block;
+    margin: 5px 0;
+}
+
+.skills input {
+    margin-right: 8px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #667eea;
+    color: white;
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+
+.success {
+    display: none;
+    text-align: center;
+    padding: 40px;
+}
+
+.success h1 {
+    color: green;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container" id="formBox">
+<h2>🎓 Student Registration</h2>
+
+<form onsubmit="showSuccess(); return false;">
+
+<div class="form-group">
+<label>Full Name</label>
+<input type="text" required>
+</div>
+
+<div class="form-group">
+<label>Email</label>
+<input type="email" required>
+</div>
+
+<div class="form-group">
+<label>Password</label>
+<input type="password" required>
+</div>
+
+<div class="form-group">
+<label>Phone</label>
+<input type="tel" pattern="[0-9]{10}" required>
+</div>
+
+<div class="form-group">
+<label>Date of Birth</label>
+<input type="date" required>
+</div>
+
+<div class="form-group">
+<label>Gender</label>
+<div class="gender">
+    <label><input type="radio" name="g"> Male</label>
+    <label><input type="radio" name="g"> Female</label>
+    <label><input type="radio" name="g"> Other</label>
+</div>
+</div>
+
+<div class="form-group">
+<label>Course</label>
+<select required>
+    <option value="">Select Course</option>
+    <option>B.Tech</option>
+    <option>BCA</option>
+    <option>BBA</option>
+    <option>BSc</option>
+    <option>MCA</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Department</label>
+<input list="dept">
+<datalist id="dept">
+    <option value="Computer Science">
+    <option value="Information Technology">
+    <option value="Electronics">
+    <option value="Mechanical">
+    <option value="Civil">
+    <option value="AIML">
+    <option value="Data Science">
+</datalist>
+</div>
+
+<div class="form-group">
+<label>Skills</label>
+<div class="skills">
+    <label><input type="checkbox"> Java</label>
+    <label><input type="checkbox"> Python</label>
+    <label><input type="checkbox"> Web Development</label>
+    <label><input type="checkbox"> Machine Learning</label>
+    <label><input type="checkbox"> Data Analysis</label>
+</div>
+</div>
+
+<div class="form-group">
+<label>Upload Photo</label>
+<input type="file">
+</div>
+
+<div class="form-group">
+<label>Address</label>
+<textarea rows="3"></textarea>
+</div>
+
+<button type="submit">Register</button>
+
+</form>
+</div>
+
+<!-- SUCCESS MESSAGE -->
+<div class="container success" id="successBox">
+    <h1>✅ Registration Successful!</h1>
+    <p>Your form has been submitted successfully.</p>
+</div>
+
+<script>
+function showSuccess() {
+    document.getElementById("formBox").style.display = "none";
+    document.getElementById("successBox").style.display = "block";
+}
+</script>
+
+</body>
+</html>
